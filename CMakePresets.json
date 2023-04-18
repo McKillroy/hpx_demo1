@@ -1,0 +1,102 @@
+{
+    "version": 5,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "include": [
+        "user-config.json"
+    ],
+    "configurePresets": [
+        {
+            "name": "windows",
+            "hidden": true,
+            "displayName": "Windows-only configuration",
+            "description": "This build is only available on Windows",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang-cl",
+                "CMAKE_C_COMPILER": "clang-cl"
+            }
+        },
+        {
+            "name": "linux",
+            "hidden": true,
+            "displayName": "Linux-only configuration",
+            "description": "This build is only available on Linux",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": " Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cc",
+                "CMAKE_CXX_COMPILER": "c++"
+            }
+        },
+        {
+            "name": "Debug",
+            "displayName": "Debug Config",
+            "inherits": [
+                "windows",
+                "linux",
+                "user-settings"
+            ],
+            "description": "Debug build using Ninja generator",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Release",
+            "displayName": "Release Config",
+            "inherits": [
+                "windows",
+                "linux",
+                "user-settings"
+            ],
+            "description": "Release build using Ninja generator",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "RelWithDebInfo",
+            "displayName": "RelWithDebInfo Config",
+            "inherits": [
+                "windows",
+                "linux",
+                "user-settings"
+            ],
+            "description": "Release build using Ninja generator with debug symbols",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "displayName": "Debug Build",
+            "configurePreset": "Debug"
+        },
+        {
+            "name": "Release",
+            "displayName": "Release Build",
+            "configurePreset": "Release"
+        },
+        {
+            "name": "RelWithDebInfo",
+            "displayName": "RelWithDebInfo Build",
+            "configurePreset": "RelWithDebInfo"
+        }
+    ]
+}

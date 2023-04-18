@@ -1,0 +1,20 @@
+
+set(artifact "example")
+add_executable(${artifact} ${artifact}.cpp)
+
+target_include_directories(${artifact} 
+  PRIVATE
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src>
+    $<INSTALL_INTERFACE:include>    
+)
+
+install(TARGETS ${artifact}
+        EXPORT ${artifact}Targets
+        RUNTIME DESTINATION bin/${artifact}
+)
+
+install(EXPORT ${artifact}Targets
+        FILE ${artifact}Targets.cmake
+        NAMESPACE ${artifact}::
+        DESTINATION lib/cmake/${artifact}
+)

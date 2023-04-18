@@ -1,0 +1,28 @@
+{
+    "configurePresets": [
+        {
+            "name": "user-settings",
+            "hidden": true,
+            "toolchainFile": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
+
+            "cacheVariables": {
+
+                "VCPKG_MANIFEST_FEATURES": "tidy",
+
+                "VCPKG_ROOT": "C:/vcpkg",
+                "X_VCPKG_APPLOCAL_DEPS_INSTALL": true,
+
+                "CLANG_TIDY_EXECUTABLE": "C:/Program Files/LLVM/bin/clang-tidy",
+                "CLANG_TIDY_CONFIG": "${sourceDir}/.clang-tidy",
+
+                "CMAKE_CXX_FLAGS": "/permissive- /EHsc",
+                "VCPKG_KEEP_ENV_VARS": "HPX_USER_CONFIG"
+            },
+            "binaryDir": "${sourceDir}/_out/build/${presetName}",
+            "installDir": "${sourceDir}/_out/install/${presetName}",
+            "environment": {
+                "HPX_USER_CONFIG": "${sourceDir}/myHPXconfig.cmake"
+            },
+        }
+    ]
+}

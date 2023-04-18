@@ -1,0 +1,9 @@
+{
+    "default": {
+        
+        "hpx": {
+            "baseline": "1.9.0-rc2",
+            "port-version": 0
+        }
+    }
+}

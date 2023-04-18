@@ -1,0 +1,9 @@
+{
+    "versions": [        
+        {
+            "version-string": "1.9.0-rc2",
+            "port-version": 0,
+            "path": "$/ports/hpx/1.9.0-rc2"
+        }
+    ]
+}

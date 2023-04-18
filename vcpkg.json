@@ -1,0 +1,12 @@
+{
+    "name": "hpx-demo",
+    "version-string": "0.0.1",
+    "dependencies": [
+        "hpx"
+    ],
+    "features": {
+        "tidy": {
+            "description": "Run clang-tidy on code"
+        }
+    }
+}
